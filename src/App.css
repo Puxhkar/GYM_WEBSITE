@@ -1,0 +1,9 @@
+/* App-specific overrides if needed */
+#root {
+  width: 100%;
+}
+
+/* Smooth scroll for anchor links */
+html {
+  scroll-behavior: smooth;
+}

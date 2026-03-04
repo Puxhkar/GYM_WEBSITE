@@ -1,0 +1,190 @@
+@use '../index.css';
+
+.features-section {
+    background-color: var(--bg-card);
+    /* Slightly lighter than main bg */
+    position: relative;
+    overflow: hidden;
+
+    .features-section__header {
+        margin-bottom: 4rem;
+        position: relative;
+        z-index: 1;
+
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+        }
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        perspective: 1000px;
+        /* For 3D tilt if we want later */
+
+        @media (max-width: 900px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .feature-card {
+        background: var(--bg-glass);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 2.5rem;
+        border-radius: var(--border-radius-lg);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+
+        /* Glow Effect on Hover */
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(0, 229, 255, 0.08), transparent 40%);
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        &:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 229, 255, 0.15);
+            border-color: rgba(0, 229, 255, 0.3);
+
+            &::before {
+                opacity: 1;
+            }
+
+            .feature-icon {
+                color: var(--accent-primary);
+                transform: scale(1.15) rotate(5deg);
+                background: rgba(0, 229, 255, 0.15);
+            }
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--accent-primary);
+            margin-bottom: 1.5rem;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    .cta-wrapper {
+        margin-top: 4rem;
+
+        .btn-text {
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--accent-primary);
+            padding-bottom: 2px;
+            transition: all 0.3s;
+
+            &:hover {
+                color: var(--accent-primary);
+                letter-spacing: 0.05em;
+            }
+        }
+    }
+
+    .features-promo-box {
+        margin-top: 4rem;
+        background: var(--bg-card);
+        border: 1px solid rgba(0, 229, 255, 0.15);
+        border-radius: var(--border-radius-lg);
+        padding: 3rem 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.05));
+            pointer-events: none;
+        }
+
+        .promo-content {
+            flex: 1;
+
+            h3 {
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+                color: var(--text-main);
+            }
+
+            p {
+                font-size: 1.1rem;
+                color: var(--text-muted);
+                margin: 0;
+                line-height: 1.6;
+                max-width: 600px;
+            }
+        }
+
+        .promo-action {
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+
+            .promo-content p {
+                margin: 0 auto 1.5rem;
+            }
+        }
+    }
+}

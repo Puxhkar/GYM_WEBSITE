@@ -1,0 +1,57 @@
+@use 'variables' as *;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $font-secondary;
+    background-color: $color-ivory;
+    color: $color-charcoal;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $font-primary;
+    font-weight: 700;
+    margin-bottom: $spacing-sm;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+}
+
+// Utility classes
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $spacing-sm;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.pastel-gradient {
+    background: linear-gradient(135deg, $color-ivory 0%, $color-powder-blue 100%);
+}
