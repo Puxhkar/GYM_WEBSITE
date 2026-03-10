@@ -6,7 +6,7 @@ export const gymData = {
         subtitle: "Join a community of 500+ success stories. Expert coaching, personalized programs, real results.",
         ctaPrimary: "Get Started",
         ctaSecondary: "Watch Testimonials",
-        backgroundImage: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2670&auto=format&fit=crop"
+        backgroundImage: "/gym_content/premium_gym_interior_1773166962229.png"
     },
     about: {
         title: "More Than Just A Gym",
@@ -18,7 +18,7 @@ export const gymData = {
             { value: "500+", label: "Lives Changed" },
             { value: "15+", label: "Expert Trainers" }
         ],
-        image: "https://images.unsplash.com/photo-1548690312-e3b507d8c110?q=80&w=2576&auto=format&fit=crop"
+        image: "/gym_content/premium_workout_gym_1773167114690.png"
     },
     testimonials: {
         videos: [
@@ -26,29 +26,29 @@ export const gymData = {
                 id: 1,
                 name: "Alex M.",
                 stat: "Lost 18kg in 5 months",
-                image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2670&auto=format&fit=crop",
-                videoUrl: ""
+                image: "/gym_content/IMG_5783.jpg",
+                videoUrl: "/gym_content/IMG_8259.MP4"
             },
             {
                 id: 2,
                 name: "Jordan T.",
                 stat: "Gained 8kg muscle in 4 months",
-                image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2670&auto=format&fit=crop",
-                videoUrl: ""
+                image: "/gym_content/IMG_8324.JPG",
+                videoUrl: "/gym_content/IMG_8323.MP4"
             },
             {
                 id: 3,
                 name: "Sara K.",
                 stat: "Ran first marathon at 38",
-                image: "https://images.unsplash.com/photo-1549060279-7e168fcee0c2?q=80&w=2574&auto=format&fit=crop",
-                videoUrl: ""
+                image: "/gym_content/IMG_6341.jpg",
+                videoUrl: "/gym_content/IMG_8328.MP4"
             },
             {
                 id: 4,
                 name: "Chris R.",
                 stat: "Lost 12kg, gained confidence",
-                image: "https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?q=80&w=2574&auto=format&fit=crop",
-                videoUrl: ""
+                image: "/gym_content/cars_sampled (2).jpeg",
+                videoUrl: "/gym_content/IMG_8329.MP4"
             },
         ],
         reviews: [
@@ -59,7 +59,7 @@ export const gymData = {
                 stat: "–20kg in 6 months",
                 text: "The personalized approach is a game changer. I've never felt more confident and the trainers genuinely care about your progress.",
                 stars: 5,
-                image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop"
+                image: "/gym_content/IMG_5783.jpg"
             },
             {
                 id: 2,
@@ -84,35 +84,19 @@ export const gymData = {
     transformations: [
         {
             id: 1,
-            name: "John D.",
+            name: "Alex M.",
             duration: "12-week transformation",
-            beforeImage: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=2670&auto=format&fit=crop",
-            afterImage: "https://images.unsplash.com/photo-1534367610401-9f5ed68180aa?q=80&w=2670&auto=format&fit=crop",
+            beforeImage: "/gym_content/IMG_5783.jpg",
+            afterImage: "/gym_content/IMG_6341.jpg",
             caption: "–12kg, +4kg lean muscle"
         },
         {
             id: 2,
-            name: "Maria S.",
+            name: "Jordan T.",
             duration: "6-month journey",
-            beforeImage: "https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=2670&auto=format&fit=crop",
-            afterImage: "https://images.unsplash.com/photo-1548690312-e3b507d8c110?q=80&w=2576&auto=format&fit=crop",
+            beforeImage: "/gym_content/cars_sampled (2).jpeg",
+            afterImage: "/gym_content/IMG_8324.JPG",
             caption: "–15kg, total body recomp"
-        },
-        {
-            id: 3,
-            name: "Tim K.",
-            duration: "8-week program",
-            beforeImage: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2670&auto=format&fit=crop",
-            afterImage: "https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?q=80&w=2574&auto=format&fit=crop",
-            caption: "–8kg, improved endurance"
-        },
-        {
-            id: 4,
-            name: "Alicia M.",
-            duration: "16-week strength plan",
-            beforeImage: "https://images.unsplash.com/photo-1549060279-7e168fcee0c2?q=80&w=2574&auto=format&fit=crop",
-            afterImage: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2670&auto=format&fit=crop",
-            caption: "–10kg, first deadlift 100kg"
         }
     ],
     trainer: {
@@ -126,7 +110,7 @@ export const gymData = {
                 "Holistic Approach"
             ]
         },
-        image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2670&auto=format&fit=crop"
+        image: "/gym_content/IMG_5783.jpg"
     },
     booking: {
         title: "Ready to Start?",

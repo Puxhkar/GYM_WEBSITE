@@ -1,19 +1,15 @@
 import React, { useRef, useState, useCallback, useEffect } from 'react';
-import { gsap } from 'gsap';
-import { useGSAP } from '@gsap/react';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import './TransformationGallery.scss';
+import { motion } from 'framer-motion';
 import { gymData } from '../data/gymData';
+import { FaArrowsAltH } from 'react-icons/fa';
 
-gsap.registerPlugin(useGSAP, ScrollTrigger);
-
-/* ── Single Before/After Slider Card ── */
-const SliderCard = ({ item }) => {
-    const [sliderPos, setSliderPos] = useState(50); // percentage
+const SliderCard = ({ item, index }) => {
+    const [sliderPos, setSliderPos] = useState(50);
     const [isDragging, setIsDragging] = useState(false);
     const containerRef = useRef(null);
 
     const getPositionFromEvent = useCallback((e) => {
+        if (!containerRef.current) return 50;
         const rect = containerRef.current.getBoundingClientRect();
         const clientX = e.touches ? e.touches[0].clientX : e.clientX;
         const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
@@ -26,7 +22,6 @@ const SliderCard = ({ item }) => {
     }, [isDragging, getPositionFromEvent]);
 
     const handleStart = useCallback((e) => {
-        e.preventDefault();
         setIsDragging(true);
         setSliderPos(getPositionFromEvent(e));
     }, [getPositionFromEvent]);
@@ -50,111 +45,121 @@ const SliderCard = ({ item }) => {
         };
     }, [handleMove, handleEnd]);
 
-    // Keyboard accessibility
     const handleKeyDown = (e) => {
-        if (e.key === 'ArrowLeft') setSliderPos(p => Math.max(5, p - 5));
-        if (e.key === 'ArrowRight') setSliderPos(p => Math.min(95, p + 5));
+        if (e.key === 'ArrowLeft') setSliderPos(p => Math.max(0, p - 5));
+        if (e.key === 'ArrowRight') setSliderPos(p => Math.min(100, p + 5));
     };
 
     return (
-        <div className="transform-card">
+        <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: index * 0.1 }}
+            className="flex flex-col rounded-3xl overflow-hidden bg-[#1A1F2B] border border-white/5 shadow-2xl hover:border-cyan-500/30 transition-colors"
+        >
             <div
-                className="transform-card__slider"
+                className="relative w-full aspect-[4/5] md:aspect-square cursor-ew-resize select-none overflow-hidden"
                 ref={containerRef}
                 onMouseDown={handleStart}
                 onTouchStart={handleStart}
                 onKeyDown={handleKeyDown}
-                role="img"
+                role="slider"
                 tabIndex={0}
-                aria-label={`Before and after transformation photo of ${item.name}. Use arrow keys to compare.`}
+                aria-valuenow={sliderPos}
+                aria-label="Image comparison slider"
             >
-                {/* AFTER image (full width, underneath) */}
-                <div className="transform-card__after">
+                {/* AFTER image (bottom layer, full width) */}
+                <div className="absolute inset-0 w-full h-full pointer-events-none">
                     <img
                         src={item.afterImage}
-                        alt={`After transformation – ${item.name}`}
+                        alt="After"
+                        className="w-full h-full object-cover"
                         draggable={false}
-                        loading="lazy"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-50" />
                 </div>
 
-                {/* BEFORE image (clipped to slider position) */}
+                {/* BEFORE image (top layer, clipped based on slider) */}
                 <div
-                    className="transform-card__before"
+                    className="absolute inset-0 w-full h-full pointer-events-none"
                     style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
                 >
                     <img
                         src={item.beforeImage}
-                        alt={`Before transformation – ${item.name}`}
+                        alt="Before"
+                        className="w-full h-full object-cover"
                         draggable={false}
-                        loading="lazy"
                     />
+                    {/* Add a generic filter so it looks like a "before" photo if they are identical placeholders */}
+                    <div className="absolute inset-0 bg-black/20" />
                 </div>
 
-                {/* Labels */}
-                <span className="transform-card__label transform-card__label--before">Before</span>
-                <span className="transform-card__label transform-card__label--after">After</span>
-
-                {/* Drag Handle */}
+                {/* Vertical Divider Line */}
                 <div
-                    className="transform-card__handle"
+                    className="absolute top-0 bottom-0 w-0.5 bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.8)] z-10"
                     style={{ left: `${sliderPos}%` }}
-                    aria-hidden="true"
+                />
+
+                {/* Drag Handle Button */}
+                <div
+                    className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 z-20 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-xl text-gray-900 pointer-events-none"
+                    style={{ left: `${sliderPos}%` }}
                 >
-                    <div className="transform-card__handle-line"></div>
-                    <div className="transform-card__handle-btn">
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                            <path d="M5 9L1 9M1 9L4 6M1 9L4 12" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                            <path d="M13 9L17 9M17 9L14 6M17 9L14 12" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                    </div>
+                    <FaArrowsAltH size={20} className="opacity-80" />
+                </div>
+
+                {/* Labels overlay */}
+                <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-white uppercase tracking-wider border border-white/10 z-10 pointer-events-none">
+                    Before
+                </div>
+                <div className="absolute top-4 right-4 bg-cyan-500/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-white uppercase tracking-wider border border-cyan-400/50 z-10 pointer-events-none">
+                    After
                 </div>
             </div>
 
-            {/* Caption */}
-            <div className="transform-card__caption">
-                <div>
-                    <h4>{item.name}</h4>
-                    <p>{item.duration}</p>
-                </div>
-                <span className="transform-card__result">{item.caption}</span>
+            {/* Content box */}
+            <div className="p-8 pb-10 flex flex-col items-center text-center">
+                <h4 className="text-2xl font-bold text-white mb-1">{item.name}</h4>
+                <p className="text-cyan-400 font-semibold mb-4 text-sm">{item.duration}</p>
+                <div className="w-12 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent mb-4" />
+                <p className="text-gray-400 italic font-medium leading-relaxed">
+                    "{item.caption}"
+                </p>
             </div>
-        </div>
+        </motion.div>
     );
 };
 
-/* ── Section Wrapper ── */
 const TransformationGallery = () => {
-    const sectionRef = useRef(null);
     const { transformations } = gymData;
 
-    useGSAP(() => {
-        gsap.from('.transform-card', {
-            scrollTrigger: {
-                trigger: sectionRef.current,
-                start: 'top 80%',
-            },
-            y: 60,
-            opacity: 0,
-            duration: 0.8,
-            stagger: 0.15,
-            ease: 'power2.out'
-        });
-    }, { scope: sectionRef });
-
     return (
-        <section id="transformations" className="transformation-gallery" ref={sectionRef}>
-            <div className="container">
-                <div className="text-center mb-lg">
-                    <p className="section-label">Real Proof</p>
-                    <h2>Before &amp; After <span className="text-gradient">Transformations</span></h2>
-                    <p className="subtitle">Drag the handle to compare. These are real results from our members.</p>
+        <section id="transformations" className="py-24 bg-[#030712] relative overflow-hidden">
+            {/* Background elements */}
+            <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-indigo-500/5 rounded-full blur-[150px] pointer-events-none" />
+
+            <div className="container mx-auto px-6 relative z-10">
+                <div className="text-center mb-16">
+                    <span className="text-indigo-400 font-semibold tracking-wider uppercase text-sm mb-4 block">Real Proof</span>
+                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                        Before & After <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">Transformations</span>
+                    </h2>
+                    <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+                        Drag the slider on each image to compare. These are real results achieved through dedication and our guidance.
+                    </p>
                 </div>
 
-                <div className="transformation-grid">
-                    {transformations.map((item) => (
-                        <SliderCard key={item.id} item={item} />
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {transformations.map((item, index) => (
+                        <SliderCard key={item.id} item={item} index={index} />
                     ))}
+                </div>
+
+                <div className="mt-16 text-center">
+                    <a href="#book-trial" className="inline-block bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bold py-4 px-10 rounded-full transition-all duration-300">
+                        Start Your Transformation
+                    </a>
                 </div>
             </div>
         </section>

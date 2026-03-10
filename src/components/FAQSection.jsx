@@ -1,117 +1,123 @@
-import React, { useState, useRef } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { gsap } from 'gsap';
-import { useGSAP } from '@gsap/react';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { HiPlus, HiMinus } from 'react-icons/hi';
 import { FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
-import './FAQSection.scss';
 
-gsap.registerPlugin(useGSAP, ScrollTrigger);
+const faqs = [
+    {
+        question: "How long does it take to see results?",
+        answer: "Most members start noticing visible changes within 4–6 weeks depending on consistency and program intensity. Nutrition plays a huge role, which is why we guide you on that as well."
+    },
+    {
+        question: "Do you offer personal training?",
+        answer: "Yes, certified trainers provide customized one-on-one sessions tailored to your fitness goals. We assess your body metrics and build a plan specifically for you."
+    },
+    {
+        question: "Is there a free trial available?",
+        answer: "Yes, we offer a complimentary 3-day trial session so you can experience our environment, equipment, and training style without commitment."
+    },
+    {
+        question: "What are the membership options?",
+        answer: "Flexible monthly, quarterly, and annual plans are available. We also offer drop-in rates for visitors. Annual plans offer the best value with included bonuses."
+    },
+    {
+        question: "Do you provide diet guidance?",
+        answer: "Yes, basic nutrition consultation is included with selected membership plans. For dedicated meal planning, our partnered nutritionists offer comprehensive support."
+    }
+];
 
 const FAQSection = () => {
-    const containerRef = useRef(null);
     const [activeIndex, setActiveIndex] = useState(null);
-
-    const faqs = [
-        {
-            question: "How long does it take to see results?",
-            answer: "Most members start noticing visible changes within 4–6 weeks depending on consistency and program intensity."
-        },
-        {
-            question: "Do you offer personal training?",
-            answer: "Yes, certified trainers provide customized one-on-one sessions tailored to your fitness goals."
-        },
-        {
-            question: "Is there a free trial available?",
-            answer: "Yes, we offer a complimentary trial session so you can experience our environment and training style."
-        },
-        {
-            question: "What are the membership options?",
-            answer: "Flexible monthly, quarterly, and annual plans are available."
-        },
-        {
-            question: "Do you provide diet guidance?",
-            answer: "Yes, nutrition consultation is included with selected membership plans."
-        }
-    ];
-
-    useGSAP(() => {
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: containerRef.current,
-                start: 'top 75%',
-            }
-        });
-
-        tl.fromTo('.faq-header h2, .faq-header p, .faq-header .info-box',
-            { y: 30, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'power3.out' }
-        )
-            .fromTo('.faq-item',
-                { y: 20, opacity: 0 },
-                { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: 'power2.out' },
-                "-=0.4"
-            );
-    }, { scope: containerRef });
 
     const toggleAccordion = (index) => {
         setActiveIndex(activeIndex === index ? null : index);
     };
 
     return (
-        <section id="faq" className="faq-section" ref={containerRef}>
-            <div className="container faq-container">
-                <div className="faq-header">
-                    <h2>Common Questions</h2>
-                    <p className="subtitle">Everything you need to know before joining our elite facility.</p>
+        <section id="faq" className="py-24 bg-[#030712] relative">
+            <div className="container mx-auto px-6 max-w-6xl">
+                <div className="flex flex-col lg:flex-row gap-16">
 
-                    <div className="faq-info-boxes">
-                        <div className="info-box">
-                            <div className="info-icon"><FaEnvelope /></div>
-                            <div className="info-text">
-                                <h4>Any other questions?</h4>
-                                <p>We're here to help. Reach out to our dedicated support team anytime to clarify your doubts.</p>
-                                <span>support@mygym.com</span>
+                    {/* Header and Contact Info */}
+                    <div className="lg:w-1/3">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            className="sticky top-32"
+                        >
+                            <span className="text-cyan-400 font-semibold tracking-wider uppercase text-sm mb-4 block">Support</span>
+                            <h2 className="text-4xl font-bold text-white mb-6">Common Questions</h2>
+                            <p className="text-gray-400 text-lg mb-12 leading-relaxed">Everything you need to know before joining our elite facility.</p>
+
+                            <div className="space-y-6">
+                                <div className="bg-[#0B0F19] border border-white/5 p-6 rounded-2xl flex items-start gap-4 hover:border-cyan-500/30 transition-colors">
+                                    <div className="w-12 h-12 bg-cyan-500/10 rounded-full flex items-center justify-center text-cyan-400 shrink-0">
+                                        <FaEnvelope size={20} />
+                                    </div>
+                                    <div>
+                                        <h4 className="text-white font-bold mb-1">Email Us</h4>
+                                        <p className="text-gray-400 text-sm mb-2">We're here to help.</p>
+                                        <a href="mailto:support@fitwithraj.com" className="text-cyan-400 hover:text-cyan-300 font-medium">support@fitwithraj.com</a>
+                                    </div>
+                                </div>
+
+                                <div className="bg-[#0B0F19] border border-white/5 p-6 rounded-2xl flex items-start gap-4 hover:border-indigo-500/30 transition-colors">
+                                    <div className="w-12 h-12 bg-indigo-500/10 rounded-full flex items-center justify-center text-indigo-400 shrink-0">
+                                        <FaPhoneAlt size={20} />
+                                    </div>
+                                    <div>
+                                        <h4 className="text-white font-bold mb-1">Call Us</h4>
+                                        <p className="text-gray-400 text-sm mb-2">Talk to an expert.</p>
+                                        <a href="tel:+15551234567" className="text-indigo-400 hover:text-indigo-300 font-medium">+1 (555) 123-4567</a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div className="info-box">
-                            <div className="info-icon"><FaPhoneAlt /></div>
-                            <div className="info-text">
-                                <h4>Talk to an expert</h4>
-                                <p>Need personalized advice about which membership tier is right for you? Give us a call.</p>
-                                <span>+1 (555) 123-4567</span>
-                            </div>
+                        </motion.div>
+                    </div>
+
+                    {/* FAQ Accordion */}
+                    <div className="lg:w-2/3">
+                        <div className="space-y-4">
+                            {faqs.map((faq, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                                    className={`rounded-2xl border transition-all duration-300 overflow-hidden ${activeIndex === index ? 'bg-[#1A1F2B] border-cyan-500/50 shadow-[0_0_20px_rgba(6,182,212,0.1)]' : 'bg-[#0B0F19] border-white/5 hover:border-white/20'}`}
+                                >
+                                    <button
+                                        onClick={() => toggleAccordion(index)}
+                                        className="w-full text-left p-6 md:p-8 flex justify-between items-center bg-transparent focus:outline-none"
+                                    >
+                                        <span className="text-lg md:text-xl font-bold text-white pr-8">{faq.question}</span>
+                                        <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${activeIndex === index ? 'bg-cyan-500 text-white' : 'bg-white/5 text-cyan-400'}`}>
+                                            {activeIndex === index ? <HiMinus size={20} /> : <HiPlus size={20} />}
+                                        </span>
+                                    </button>
+
+                                    <AnimatePresence>
+                                        {activeIndex === index && (
+                                            <motion.div
+                                                initial={{ height: 0, opacity: 0 }}
+                                                animate={{ height: 'auto', opacity: 1 }}
+                                                exit={{ height: 0, opacity: 0 }}
+                                                transition={{ duration: 0.3 }}
+                                            >
+                                                <div className="px-6 md:px-8 pb-8 text-gray-400 leading-relaxed text-lg border-t border-white/5 pt-6 mt-2">
+                                                    {faq.answer}
+                                                </div>
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                </motion.div>
+                            ))}
                         </div>
                     </div>
-                </div>
 
-                <div className="faq-list">
-                    {faqs.map((faq, index) => (
-                        <div key={index} className={`faq-item ${activeIndex === index ? 'active' : ''}`}>
-                            <button className="faq-question" onClick={() => toggleAccordion(index)}>
-                                <span>{faq.question}</span>
-                                <span className="icon">
-                                    {activeIndex === index ? <HiMinus /> : <HiPlus />}
-                                </span>
-                            </button>
-                            <AnimatePresence>
-                                {activeIndex === index && (
-                                    <motion.div
-                                        className="faq-answer"
-                                        initial={{ height: 0, opacity: 0 }}
-                                        animate={{ height: 'auto', opacity: 1 }}
-                                        exit={{ height: 0, opacity: 0 }}
-                                        transition={{ duration: 0.3, ease: 'easeInOut' }}
-                                    >
-                                        <div className="faq-answer-content">
-                                            {faq.answer}
-                                        </div>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-                        </div>
-                    ))}
                 </div>
             </div>
         </section>
