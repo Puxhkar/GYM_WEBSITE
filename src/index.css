@@ -23,7 +23,7 @@
   }
 
   .btn-primary {
-    @apply px-6 py-3 bg-gradient-to-r from-yellow-500 to-amber-600 text-[#050505] shadow-[0_4px_15px_rgba(245, 158, 11, 0.4)] hover:shadow-[0_6px_25px_rgba(245, 158, 11, 0.6)] hover:-translate-y-1 hover:border-yellow-400 border border-transparent font-bold tracking-wide;
+    @apply px-6 py-3 bg-gradient-to-r from-yellow-500 to-amber-600 text-[#050505] shadow-[0_4px_15px_rgba(245,158,11,0.4)] hover:shadow-[0_6px_25px_rgba(245,158,11,0.6)] hover:-translate-y-1 hover:border-yellow-400 border border-transparent font-bold tracking-wide;
   }
 
   /* Structural Base utilities */
