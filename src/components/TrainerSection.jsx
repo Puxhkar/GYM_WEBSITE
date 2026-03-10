@@ -9,7 +9,7 @@ const TrainerSection = () => {
     return (
         <section id="trainers" className="py-24 bg-[#030712] relative overflow-hidden">
             {/* Background Accents */}
-            <div className="absolute -left-40 top-40 w-96 h-96 bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute -left-40 top-40 w-96 h-96 bg-yellow-500/10 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="container mx-auto px-6 relative z-10">
                 <div className="text-center mb-20">
@@ -17,7 +17,7 @@ const TrainerSection = () => {
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-cyan-400 font-semibold tracking-wider uppercase text-sm mb-4 block"
+                        className="text-yellow-400 font-semibold tracking-wider uppercase text-sm mb-4 block"
                     >
                         Learn From The Best
                     </motion.span>
@@ -62,7 +62,7 @@ const TrainerSection = () => {
 
                                 {/* Play Button Overlay */}
                                 <div className="absolute inset-0 flex flex-col items-center justify-center">
-                                    <button className="w-20 h-20 bg-cyan-500/90 text-white rounded-full flex items-center justify-center pl-2 shadow-[0_0_30px_rgba(6,182,212,0.6)] group-hover:scale-110 group-hover:bg-cyan-400 transition-all duration-300">
+                                    <button className="w-20 h-20 bg-yellow-500/90 text-white rounded-full flex items-center justify-center pl-2 shadow-[0_0_30px_rgba(234,179,8,0.6)] group-hover:scale-110 group-hover:bg-yellow-400 transition-all duration-300">
                                         <FaPlay className="w-8 h-8" />
                                     </button>
                                     <span className="text-white font-medium mt-6 tracking-wide drop-shadow-md bg-black/30 px-6 py-2 rounded-full backdrop-blur-sm border border-white/10">
@@ -84,8 +84,8 @@ const TrainerSection = () => {
                         <h3 className="text-3xl font-bold text-white mb-8">Expert Guidance</h3>
 
                         <div className="relative mb-12">
-                            <span className="absolute -top-6 -left-4 text-7xl text-cyan-500/20 font-serif">"</span>
-                            <p className="text-xl md:text-2xl font-serif text-gray-300 italic leading-relaxed relative z-10 pl-6 border-l-2 border-cyan-500/30">
+                            <span className="absolute -top-6 -left-4 text-7xl text-yellow-500/20 font-serif">"</span>
+                            <p className="text-xl md:text-2xl font-serif text-gray-300 italic leading-relaxed relative z-10 pl-6 border-l-2 border-yellow-500/30">
                                 {bio.quote}
                             </p>
                         </div>
@@ -100,14 +100,14 @@ const TrainerSection = () => {
                                     transition={{ delay: 0.4 + (index * 0.1) }}
                                     className="flex items-start gap-4"
                                 >
-                                    <FaCheckCircle className="text-cyan-400 w-6 h-6 shrink-0 mt-1 shadow-[0_0_10px_rgba(6,182,212,0.5)] rounded-full" />
+                                    <FaCheckCircle className="text-yellow-400 w-6 h-6 shrink-0 mt-1 shadow-[0_0_10px_rgba(234,179,8,0.5)] rounded-full" />
                                     <span className="text-gray-300 text-lg">{highlight}</span>
                                 </motion.li>
                             ))}
                         </ul>
 
                         <div className="mt-12">
-                            <a href="#services" className="inline-block border border-cyan-500/50 hover:bg-cyan-500/10 text-cyan-400 font-bold py-3 px-8 rounded-full transition-colors duration-300">
+                            <a href="#services" className="inline-block border border-yellow-500/50 hover:bg-yellow-500/10 text-yellow-400 font-bold py-3 px-8 rounded-full transition-colors duration-300">
                                 View Training Programs
                             </a>
                         </div>

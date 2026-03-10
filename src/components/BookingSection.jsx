@@ -15,21 +15,21 @@ const BookingSection = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <span className="text-cyan-400 font-semibold tracking-wider uppercase text-sm mb-4 block">Take Action</span>
+                        <span className="text-yellow-400 font-semibold tracking-wider uppercase text-sm mb-4 block">Take Action</span>
                         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                            {title.split('Free')[0]} <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-400">Free Trial</span>
+                            {title.split('Free')[0]} <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-amber-400">Free Trial</span>
                         </h2>
                         <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-10">{subtitle}</p>
 
                         <div className="flex flex-wrap justify-center gap-4 md:gap-8 text-sm md:text-base mb-12">
                             <span className="flex items-center gap-2 bg-[#1A1F2B] text-gray-300 px-4 py-2 rounded-full border border-white/5">
-                                <span className="text-cyan-400">✓</span> No Credit Card Required
+                                <span className="text-yellow-400">✓</span> No Credit Card Required
                             </span>
                             <span className="flex items-center gap-2 bg-[#1A1F2B] text-gray-300 px-4 py-2 rounded-full border border-white/5">
-                                <span className="text-cyan-400">✓</span> 1-on-1 Consultation
+                                <span className="text-yellow-400">✓</span> 1-on-1 Consultation
                             </span>
                             <span className="flex items-center gap-2 bg-[#1A1F2B] text-gray-300 px-4 py-2 rounded-full border border-white/5">
-                                <span className="text-cyan-400">✓</span> Full Facility Tour
+                                <span className="text-yellow-400">✓</span> Full Facility Tour
                             </span>
                         </div>
                     </motion.div>

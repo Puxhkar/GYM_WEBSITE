@@ -47,30 +47,30 @@ const FAQSection = () => {
                             transition={{ duration: 0.6 }}
                             className="sticky top-32"
                         >
-                            <span className="text-cyan-400 font-semibold tracking-wider uppercase text-sm mb-4 block">Support</span>
+                            <span className="text-yellow-400 font-semibold tracking-wider uppercase text-sm mb-4 block">Support</span>
                             <h2 className="text-4xl font-bold text-white mb-6">Common Questions</h2>
                             <p className="text-gray-400 text-lg mb-12 leading-relaxed">Everything you need to know before joining our elite facility.</p>
 
                             <div className="space-y-6">
-                                <div className="bg-[#0B0F19] border border-white/5 p-6 rounded-2xl flex items-start gap-4 hover:border-cyan-500/30 transition-colors">
-                                    <div className="w-12 h-12 bg-cyan-500/10 rounded-full flex items-center justify-center text-cyan-400 shrink-0">
+                                <div className="bg-[#0B0F19] border border-white/5 p-6 rounded-2xl flex items-start gap-4 hover:border-yellow-500/30 transition-colors">
+                                    <div className="w-12 h-12 bg-yellow-500/10 rounded-full flex items-center justify-center text-yellow-400 shrink-0">
                                         <FaEnvelope size={20} />
                                     </div>
                                     <div>
                                         <h4 className="text-white font-bold mb-1">Email Us</h4>
                                         <p className="text-gray-400 text-sm mb-2">We're here to help.</p>
-                                        <a href="mailto:support@fitwithraj.com" className="text-cyan-400 hover:text-cyan-300 font-medium">support@fitwithraj.com</a>
+                                        <a href="mailto:support@fitwithraj.com" className="text-yellow-400 hover:text-yellow-300 font-medium">support@fitwithraj.com</a>
                                     </div>
                                 </div>
 
-                                <div className="bg-[#0B0F19] border border-white/5 p-6 rounded-2xl flex items-start gap-4 hover:border-indigo-500/30 transition-colors">
-                                    <div className="w-12 h-12 bg-indigo-500/10 rounded-full flex items-center justify-center text-indigo-400 shrink-0">
+                                <div className="bg-[#0B0F19] border border-white/5 p-6 rounded-2xl flex items-start gap-4 hover:border-amber-500/30 transition-colors">
+                                    <div className="w-12 h-12 bg-amber-500/10 rounded-full flex items-center justify-center text-amber-400 shrink-0">
                                         <FaPhoneAlt size={20} />
                                     </div>
                                     <div>
                                         <h4 className="text-white font-bold mb-1">Call Us</h4>
                                         <p className="text-gray-400 text-sm mb-2">Talk to an expert.</p>
-                                        <a href="tel:+15551234567" className="text-indigo-400 hover:text-indigo-300 font-medium">+1 (555) 123-4567</a>
+                                        <a href="tel:+15551234567" className="text-amber-400 hover:text-amber-300 font-medium">+1 (555) 123-4567</a>
                                     </div>
                                 </div>
                             </div>
@@ -87,14 +87,14 @@ const FAQSection = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                                    className={`rounded-2xl border transition-all duration-300 overflow-hidden ${activeIndex === index ? 'bg-[#1A1F2B] border-cyan-500/50 shadow-[0_0_20px_rgba(6,182,212,0.1)]' : 'bg-[#0B0F19] border-white/5 hover:border-white/20'}`}
+                                    className={`rounded-2xl border transition-all duration-300 overflow-hidden ${activeIndex === index ? 'bg-[#1A1F2B] border-yellow-500/50 shadow-[0_0_20px_rgba(234,179,8,0.1)]' : 'bg-[#0B0F19] border-white/5 hover:border-white/20'}`}
                                 >
                                     <button
                                         onClick={() => toggleAccordion(index)}
                                         className="w-full text-left p-6 md:p-8 flex justify-between items-center bg-transparent focus:outline-none"
                                     >
                                         <span className="text-lg md:text-xl font-bold text-white pr-8">{faq.question}</span>
-                                        <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${activeIndex === index ? 'bg-cyan-500 text-white' : 'bg-white/5 text-cyan-400'}`}>
+                                        <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${activeIndex === index ? 'bg-yellow-500 text-white' : 'bg-white/5 text-yellow-400'}`}>
                                             {activeIndex === index ? <HiMinus size={20} /> : <HiPlus size={20} />}
                                         </span>
                                     </button>

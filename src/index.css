@@ -1,17 +1,69 @@
 @import "tailwindcss";
 
 @theme {
-  --color-base: #030712;
-  --color-surface-card: #0B0F19;
-
-  --color-cyan-400: #22d3ee;
-  --color-cyan-500: #06b6d4;
-  --color-indigo-400: #818cf8;
-  --color-indigo-500: #6366f1;
+  --color-base: #050505;
 }
 
 @layer base {
   body {
-    @apply bg-base text-white font-sans antialiased overflow-x-hidden;
+    @apply bg-[#050505] text-[#D1D5DB] font-sans overflow-x-hidden;
   }
+
+  /* Selection styling */
+  ::selection {
+    @apply bg-amber-500/30 text-amber-200;
+  }
+}
+
+@layer components {
+
+  /* Buttons */
+  .btn {
+    @apply inline-block font-semibold rounded-full transition-all duration-300 transform border;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-yellow-500 to-amber-600 text-[#050505] shadow-[0_4px_15px_rgba(245, 158, 11, 0.4)] hover:shadow-[0_6px_25px_rgba(245, 158, 11, 0.6)] hover:-translate-y-1 hover:border-yellow-400 border border-transparent font-bold tracking-wide;
+  }
+
+  /* Structural Base utilities */
+  .container {
+    @apply container mx-auto px-6 max-w-7xl relative z-10;
+  }
+
+  .section-label {
+    @apply text-amber-500 font-semibold tracking-wider uppercase text-sm mb-4 block;
+  }
+
+  .subtitle {
+    @apply text-gray-400 text-lg max-w-2xl mx-auto;
+  }
+
+  .text-gradient {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-amber-500;
+  }
+}
+
+/* Base custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #111111;
+  border-radius: 5px;
+  border: 1px solid #333;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f59e0b;
+}
+
+/* Perspective Utility for Card flip */
+.perspective-1000 {
+  perspective: 1000px;
 }

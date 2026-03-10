@@ -56,7 +56,7 @@ const SliderCard = ({ item, index }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            className="flex flex-col rounded-3xl overflow-hidden bg-[#1A1F2B] border border-white/5 shadow-2xl hover:border-cyan-500/30 transition-colors"
+            className="flex flex-col rounded-3xl overflow-hidden bg-[#1A1F2B] border border-white/5 shadow-2xl hover:border-yellow-500/30 transition-colors"
         >
             <div
                 className="relative w-full aspect-[4/5] md:aspect-square cursor-ew-resize select-none overflow-hidden"
@@ -97,7 +97,7 @@ const SliderCard = ({ item, index }) => {
 
                 {/* Vertical Divider Line */}
                 <div
-                    className="absolute top-0 bottom-0 w-0.5 bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.8)] z-10"
+                    className="absolute top-0 bottom-0 w-0.5 bg-yellow-400 shadow-[0_0_10px_rgba(250,204,21,0.8)] z-10"
                     style={{ left: `${sliderPos}%` }}
                 />
 
@@ -113,7 +113,7 @@ const SliderCard = ({ item, index }) => {
                 <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-white uppercase tracking-wider border border-white/10 z-10 pointer-events-none">
                     Before
                 </div>
-                <div className="absolute top-4 right-4 bg-cyan-500/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-white uppercase tracking-wider border border-cyan-400/50 z-10 pointer-events-none">
+                <div className="absolute top-4 right-4 bg-yellow-500/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-white uppercase tracking-wider border border-yellow-400/50 z-10 pointer-events-none">
                     After
                 </div>
             </div>
@@ -121,8 +121,8 @@ const SliderCard = ({ item, index }) => {
             {/* Content box */}
             <div className="p-8 pb-10 flex flex-col items-center text-center">
                 <h4 className="text-2xl font-bold text-white mb-1">{item.name}</h4>
-                <p className="text-cyan-400 font-semibold mb-4 text-sm">{item.duration}</p>
-                <div className="w-12 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent mb-4" />
+                <p className="text-yellow-400 font-semibold mb-4 text-sm">{item.duration}</p>
+                <div className="w-12 h-0.5 bg-gradient-to-r from-yellow-400 to-transparent mb-4" />
                 <p className="text-gray-400 italic font-medium leading-relaxed">
                     "{item.caption}"
                 </p>
@@ -137,13 +137,13 @@ const TransformationGallery = () => {
     return (
         <section id="transformations" className="py-24 bg-[#030712] relative overflow-hidden">
             {/* Background elements */}
-            <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-indigo-500/5 rounded-full blur-[150px] pointer-events-none" />
+            <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-[150px] pointer-events-none" />
 
             <div className="container mx-auto px-6 relative z-10">
                 <div className="text-center mb-16">
-                    <span className="text-indigo-400 font-semibold tracking-wider uppercase text-sm mb-4 block">Real Proof</span>
+                    <span className="text-amber-400 font-semibold tracking-wider uppercase text-sm mb-4 block">Real Proof</span>
                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                        Before & After <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">Transformations</span>
+                        Before & After <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-400">Transformations</span>
                     </h2>
                     <p className="text-gray-400 text-lg max-w-2xl mx-auto">
                         Drag the slider on each image to compare. These are real results achieved through dedication and our guidance.

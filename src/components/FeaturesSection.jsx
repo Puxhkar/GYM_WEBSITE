@@ -27,7 +27,7 @@ const FeatureCard = ({ feature, index }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="group relative rounded-2xl border border-white/5 bg-[#1A1F2B] p-8 overflow-hidden hover:border-cyan-500/30 transition-colors"
+            className="group relative rounded-2xl border border-white/5 bg-[#1A1F2B] p-8 overflow-hidden hover:border-yellow-500/30 transition-colors"
             onMouseMove={handleMouseMove}
         >
             <motion.div
@@ -44,7 +44,7 @@ const FeatureCard = ({ feature, index }) => {
             />
 
             <div className="relative z-10">
-                <div className="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center text-cyan-400 text-2xl mb-6 group-hover:scale-110 group-hover:bg-cyan-500/10 transition-all duration-300 group-hover:-rotate-3">
+                <div className="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center text-yellow-400 text-2xl mb-6 group-hover:scale-110 group-hover:bg-yellow-500/10 transition-all duration-300 group-hover:-rotate-3">
                     {feature.icon}
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
@@ -67,7 +67,7 @@ const FeaturesSection = () => {
                         viewport={{ once: true }}
                         className="text-4xl md:text-5xl font-bold text-white mb-6"
                     >
-                        Everything You Need To <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-400">Transform</span>
+                        Everything You Need To <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-amber-400">Transform</span>
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -81,7 +81,7 @@ const FeaturesSection = () => {
                 </div>
 
                 {/* Split Layout -> Bento Style Content */}
-                <div className="flex flex-col lg:flex-row items-center gap-16">
+                <div className="flex flex-col md:flex-row items-center gap-16">
                     {/* Left: Introduction + Grid */}
                     <div className="flex-1 w-full flex flex-col gap-10">
                         <motion.div
@@ -91,7 +91,7 @@ const FeaturesSection = () => {
                             className="bg-white/5 rounded-3xl p-8 border border-white/10"
                         >
                             <p className="text-xl text-white font-medium mb-4">
-                                Welcome to <strong className="text-cyan-400">FitWith Raj</strong>. We are committed to helping you achieve your ultimate fitness goals with state-of-the-art facilities, expert coaching, and a supportive community.
+                                Welcome to <strong className="text-yellow-400">FitWith Raj</strong>. We are committed to helping you achieve your ultimate fitness goals with state-of-the-art facilities, expert coaching, and a supportive community.
                             </p>
                             <p className="text-gray-400 leading-relaxed text-lg">
                                 Whether you're a beginner taking your first steps or a seasoned athlete pushing your limits, we have everything you need to transform your body and mind in a clean, professional environment.
@@ -111,7 +111,7 @@ const FeaturesSection = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="flex-1 w-full relative rounded-3xl overflow-hidden group border border-white/10 aspect-[4/5] lg:aspect-auto h-full min-h-[600px]"
+                        className="flex-1 w-full relative rounded-3xl overflow-hidden group border border-white/10 aspect-[4/5] md:aspect-auto h-full min-h-[600px]"
                     >
                         <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F14] via-transparent to-transparent z-10" />
                         <img
@@ -127,7 +127,7 @@ const FeaturesSection = () => {
                                     <h3 className="text-2xl font-bold text-white mb-2">More Than Just A Gym</h3>
                                     <p className="text-gray-300 text-sm leading-relaxed">Join today and get complementary access to our exclusive member's lounge, protein bar, and monthly fitness workshops.</p>
                                 </div>
-                                <a href="#book-trial" className="shrink-0 px-6 py-3 rounded-full bg-cyan-500 text-gray-900 font-bold hover:bg-cyan-400 transition-colors">
+                                <a href="#book-trial" className="shrink-0 px-6 py-3 rounded-full bg-yellow-500 text-gray-900 font-bold hover:bg-yellow-400 transition-colors">
                                     Claim Spot
                                 </a>
                             </div>

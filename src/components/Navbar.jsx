@@ -77,7 +77,7 @@ const Navbar = () => {
                 <div className="container mx-auto px-6 flex justify-between items-center w-full">
                     {/* Logo */}
                     <a href="#home" className="text-2xl font-bold tracking-tight text-white z-50">
-                        FitWith<span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-500">Raj</span>
+                        FitWith<span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-500">Raj</span>
                     </a>
 
                     {/* Desktop Menu */}
@@ -87,7 +87,7 @@ const Navbar = () => {
                                 <li key={link.name}>
                                     <a
                                         href={link.to}
-                                        className="text-gray-300 hover:text-cyan-400 font-medium transition-colors duration-300 text-sm tracking-wide uppercase"
+                                        className="text-gray-300 hover:text-yellow-400 font-medium transition-colors duration-300 text-sm tracking-wide uppercase"
                                     >
                                         {link.name}
                                     </a>
@@ -96,7 +96,7 @@ const Navbar = () => {
                         </ul>
                         <a
                             href="#book-trial"
-                            className="bg-gradient-to-r from-cyan-500 to-indigo-500 hover:from-cyan-400 hover:to-indigo-400 text-white font-bold py-2.5 px-6 rounded-full shadow-[0_0_15px_rgba(6,182,212,0.4)] hover:shadow-[0_0_25px_rgba(6,182,212,0.6)] hover:scale-105 transition-all duration-300"
+                            className="bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-400 hover:to-amber-400 text-white font-bold py-2.5 px-6 rounded-full shadow-[0_0_15px_rgba(234,179,8,0.4)] hover:shadow-[0_0_25px_rgba(234,179,8,0.6)] hover:scale-105 transition-all duration-300"
                         >
                             Book Free Trial
                         </a>
@@ -134,7 +134,7 @@ const Navbar = () => {
                                     <a
                                         href={link.to}
                                         onClick={toggleMenu}
-                                        className="block text-3xl font-bold text-gray-200 hover:text-cyan-400 transition-colors py-2"
+                                        className="block text-3xl font-bold text-gray-200 hover:text-yellow-400 transition-colors py-2"
                                     >
                                         {link.name}
                                     </a>
@@ -148,7 +148,7 @@ const Navbar = () => {
                         >
                             <a
                                 href="#book-trial"
-                                className="block w-full text-center bg-gradient-to-r from-cyan-500 to-indigo-500 text-white font-bold py-4 rounded-full shadow-[0_0_20px_rgba(6,182,212,0.4)]"
+                                className="block w-full text-center bg-gradient-to-r from-yellow-500 to-amber-500 text-white font-bold py-4 rounded-full shadow-[0_0_20px_rgba(234,179,8,0.4)]"
                                 onClick={toggleMenu}
                             >
                                 Book Free Trial

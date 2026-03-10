@@ -44,10 +44,10 @@ const AboutSection = () => {
     return (
         <section id="about" className="py-24 bg-[#0B0F19] relative overflow-hidden">
             {/* Background Decorations */}
-            <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-indigo-500/10 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-amber-500/10 rounded-full blur-[100px] pointer-events-none" />
 
             <div className="container mx-auto px-6 relative z-10">
-                <div className="flex flex-col lg:flex-row items-center gap-16">
+                <div className="flex flex-col md:flex-row items-center gap-16">
 
                     {/* Left: Image */}
                     <motion.div
@@ -57,7 +57,7 @@ const AboutSection = () => {
                         transition={{ duration: 0.8 }}
                         className="flex-1 w-full relative"
                     >
-                        <div className="relative rounded-3xl overflow-hidden border border-white/10 aspect-[4/5] md:aspect-square lg:aspect-[4/5] shadow-[0_0_40px_rgba(34,211,238,0.1)]">
+                        <div className="relative rounded-3xl overflow-hidden border border-white/10 aspect-[4/5] md:aspect-square md:aspect-[4/5] shadow-[0_0_40px_rgba(250,204,21,0.1)]">
                             <img
                                 src={image}
                                 alt="Gym Interior"
@@ -75,12 +75,12 @@ const AboutSection = () => {
                             className="absolute -bottom-6 -right-6 md:bottom-10 md:-right-10 bg-gradient-to-br from-[#1A1F2B] to-[#0B0F19] p-6 rounded-2xl border border-white/10 shadow-2xl backdrop-blur-md"
                         >
                             <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center border border-cyan-500/50 text-cyan-400 font-bold text-xl">
+                                <div className="w-12 h-12 rounded-full bg-yellow-500/20 flex items-center justify-center border border-yellow-500/50 text-yellow-400 font-bold text-xl">
                                     5+
                                 </div>
                                 <div>
                                     <p className="text-white font-bold leading-tight">Years Of</p>
-                                    <p className="text-cyan-400 text-sm font-semibold">Excellence</p>
+                                    <p className="text-yellow-400 text-sm font-semibold">Excellence</p>
                                 </div>
                             </div>
                         </motion.div>
@@ -94,11 +94,11 @@ const AboutSection = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
                         >
-                            <span className="text-indigo-400 font-semibold tracking-wider uppercase text-sm mb-4 block">Our Story</span>
+                            <span className="text-amber-400 font-semibold tracking-wider uppercase text-sm mb-4 block">Our Story</span>
                             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                                {title.replace('Our Story', '')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">Our Story</span>
+                                {title.replace('Our Story', '')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-400">Our Story</span>
                             </h2>
-                            <div className="w-20 h-1.5 bg-gradient-to-r from-cyan-400 to-indigo-500 rounded-full mb-8" />
+                            <div className="w-20 h-1.5 bg-gradient-to-r from-yellow-400 to-amber-500 rounded-full mb-8" />
 
                             <div className="space-y-6 text-gray-400 text-lg leading-relaxed mb-12">
                                 {text.map((paragraph, index) => (
@@ -120,7 +120,7 @@ const AboutSection = () => {
                                         <h3 className="text-4xl font-bold text-white mb-2 tracking-tight">
                                             <AnimatedCounter value={stat.value} />
                                         </h3>
-                                        <p className="text-cyan-400 text-sm font-semibold uppercase tracking-wider">{stat.label}</p>
+                                        <p className="text-yellow-400 text-sm font-semibold uppercase tracking-wider">{stat.label}</p>
                                     </motion.div>
                                 ))}
                             </div>
